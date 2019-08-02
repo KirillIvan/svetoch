@@ -1,13 +1,7 @@
-var openBigImage, image, back, next, parentImages, imgs = [], index, comments = [], indexComment = 0;
+var openBigImage, image, back, next, parentImages, imgs = [], index , comments = [], indexComment = 0;
 function loadDocument(){
     openBigImage = document.getElementById('openImage');
     image = document.getElementById("openImage_img");
-    back = document.getElementById("back-image");
-    next = document.getElementById("next-image");
-    var marginTopBack = (document.documentElement.clientHeight - 40)/2 + 30 + "px";
-    var marginTopNext = (document.documentElement.clientHeight - 100)/2 - 40 + "px";
-    back.style.marginTop = marginTopBack;
-    next.style.marginTop = marginTopNext;
     comments = document.getElementsByClassName("comment");
     console.log(comments);
 }
@@ -16,17 +10,6 @@ function selectImage(event){
     var element = event.target;
     parentImages = element.parentElement;
     var pythSelectImg = element.style.backgroundImage.substring(5,element.style.backgroundImage.indexOf(")") - 1);
-    image.src = pythSelectImg;
-    if(document.documentElement.clientHeight < document.documentElement.clientWidth){
-        image.style.height = (document.documentElement.clientHeight / 1.25) + "px";
-    }
-    else{
-        image.style.width = (document.documentElement.clientWidth / 2) + "px";
-        image.style.height = (document.documentElement.clientHeight / 2) + "px";
-    }
-    image.style.marginTop = (document.documentElement.clientHeight - image.clientHeight)/2 + "px";
-    openBigImage.style.visibility = "visible";
-    console.log(parentImages.childElementCount);
     var j = 0;
     for (let i = 1; i <= parentImages.childNodes.length - 1; i +=2) {
         var tempObj = parentImages.childNodes[i];
@@ -39,10 +22,12 @@ function selectImage(event){
             break;
         }
     }
+    imageBigOpen();
 }
 
 function closeImage(){
     openBigImage.style.visibility = "hidden";
+    imgs = [];
 }
 
 function nextImage(){
@@ -52,19 +37,33 @@ function nextImage(){
     else{
         index = 0;
     }
+    imageBigOpen();
+}
+
+function imageBigOpen(){
+    back = document.getElementById("back-image");
+    next = document.getElementById("next-image");
+    var marginTopBack = (document.documentElement.clientHeight - 40)/2 + 30 + "px";
+    var marginTopNext = (document.documentElement.clientHeight - 100)/2 - 40 + "px";
+    back.style.marginTop = marginTopBack;
+    next.style.marginTop = marginTopNext;
     image.src = imgs[index];
-    if(document.documentElement.clientHeight < document.documentElement.clientWidth){
-        image.style.height = (document.documentElement.clientHeight / 1.25) + "px";
+    var img = new Image();
+    img.src = imgs[index];
+    if(window.innerHeight < window.innerWidth){
+        console.log("if");
+        var heightImage = img.width / img.height;
+        image.style.height = (window.innerHeight / 1.25) + "px";
+        image.style.width = (window.innerHeight / 1.25) * heightImage + "px";
     }
     else{
-        var img = new Image();
-        img.src = imgs[index];
+        console.log("else");
         var heightImage = img.height / img.width;
-        console.log(heightImage);
-        image.style.width = (document.documentElement.clientWidth / 2) + "px";
-        image.style.height = ((document.documentElement.clientWidth / 2) * heightImage) + "px";
-        console.log("w: " + image.style.width);
+        image.style.width = (window.innerWidth / 2) + "px";
+        image.style.height = ((window.innerWidth / 2) * heightImage) + "px";
         console.log("h: " + image.style.height);
+        console.log("w: " + image.style.width);
+        console.log("r: " + heightImage)
     }
     image.style.marginTop = (document.documentElement.clientHeight - image.clientHeight)/2 + "px";
     openBigImage.style.visibility = "visible";
@@ -105,5 +104,9 @@ function backComment(){
     comments[indexComment].style.display = "block";
 }
 
+function resizeModeWindow(){
+    imageBigOpen();
+}
+
 window.onload = loadDocument;
-//window.onresize = 
+window.onresize = resizeModeWindow;
