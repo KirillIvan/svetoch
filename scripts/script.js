@@ -105,6 +105,7 @@ function backComment(){
 }
 
 function resizeModeWindow(){
+    if(openBigImage.style.visibility == "visible")
     imageBigOpen();
 }
 
