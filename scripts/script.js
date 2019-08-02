@@ -106,4 +106,4 @@ function backComment(){
 }
 
 window.onload = loadDocument;
-window.onresize = 
+//window.onresize = 
