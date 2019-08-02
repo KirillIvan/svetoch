@@ -9,18 +9,14 @@ function loadDocument(){
 function selectImage(event){
     var element = event.target;
     parentImages = element.parentElement;
-    var pythSelectImg = element.style.backgroundImage.substring(5,element.style.backgroundImage.indexOf(")") - 1);
     var j = 0;
     for (let i = 1; i <= parentImages.childNodes.length - 1; i +=2) {
         var tempObj = parentImages.childNodes[i];
         imgs[j] = tempObj.style.backgroundImage.substring(5,tempObj.style.backgroundImage.indexOf(")") - 1);
-        j++;
-    }
-    for (let i = 0; i < imgs.length; i++) {
-        if(imgs[i] == pythSelectImg){
-            index = i;
-            break;
+        if(imgs[j] == element.style.backgroundImage.substring(5,element.style.backgroundImage.indexOf(")") - 1)){
+            index = j;
         }
+        j++;
     }
     imageBigOpen();
 }
@@ -47,9 +43,10 @@ function imageBigOpen(){
     var marginTopNext = (document.documentElement.clientHeight - 100)/2 - 40 + "px";
     back.style.marginTop = marginTopBack;
     next.style.marginTop = marginTopNext;
-    image.src = imgs[index];
     var img = new Image();
+    console.log(img);
     img.src = imgs[index];
+    image.src = imgs[index];
     if(window.innerHeight < window.innerWidth){
         console.log("if");
         var heightImage = img.width / img.height;
@@ -61,6 +58,8 @@ function imageBigOpen(){
         var heightImage = img.height / img.width;
         image.style.width = (window.innerWidth / 2) + "px";
         image.style.height = ((window.innerWidth / 2) * heightImage) + "px";
+        console.log("img-height: " + img.height + "/nimg-width: " + img.width)
+        console.log("w-w: " + window.innerWidth)
         console.log("h: " + image.style.height);
         console.log("w: " + image.style.width);
         console.log("r: " + heightImage)
@@ -76,10 +75,7 @@ function backImage(){
     else{
         index = 6;
     }
-    image.src = imgs[index];
-    image.style.height = (document.documentElement.clientHeight / 1.25) + "px";
-    image.style.marginTop = (document.documentElement.clientHeight - image.clientHeight)/2 + "px";
-    openBigImage.style.visibility = "visible";
+    imageBigOpen();
 }
 
 function nextComment(){
@@ -105,8 +101,9 @@ function backComment(){
 }
 
 function resizeModeWindow(){
-    if(openBigImage.style.visibility == "visible")
-    imageBigOpen();
+    if(openBigImage.style.visibility == "visible"){
+        imageBigOpen();
+    }
 }
 
 window.onload = loadDocument;
