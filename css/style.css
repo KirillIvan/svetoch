@@ -1,0 +1,416 @@
+@font-face {
+    font-family: izhitsa;
+        src: url('../fonts/izhitsa.woff2') format('woff2'), 
+    url('../fonts/izhitsa.woff') format('woff'),
+    url('../fonts/izhitsa.ttf') format('ttf'),
+    url('../fonts/izhitsa.eot') format('eot');
+    font-style: normal;
+    font-weight: 400;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url(../img/background.jpg);
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    min-width: 800px;
+}
+
+#openImage{
+    width: 100%;
+    height: 100%;
+    background: #000000c9;
+    position: fixed;
+    visibility: hidden;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.openImage_change{
+    width: 80px;
+}
+
+#next-image{
+    float: left;
+    padding: 20px
+}
+
+.openImage_close{
+    height: 80px;
+}
+
+.openImage_close:hover{
+    animation: changeBackgroundNavImg 0.5s forwards ease-in;
+}
+
+.openImage_nextImage{
+    width: 100px;
+    height: 100%;
+}
+
+.openImage_nextImage:hover{
+    animation: changeBackgroundNavImg 0.5s forwards ease-in;
+}
+
+.openImage_nextImage:hover{
+    animation: changeBackgroundNavImg 0.5s forwards ease-in;
+}
+
+.menu_element_text{
+    font-family: izhitsa;
+    color: #fff;
+    font-size: 25px;
+    text-decoration: none;
+    padding: 5px;
+    margin: 35px;
+}
+
+.body_menu{
+    max-width: 900px;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    align-items: center;
+    margin: 0 auto;
+    background: orange;
+    padding: 25px 50px;
+    border-radius: 0 0 30px 30px;
+}
+
+.header_text{
+    font-family: izhitsa;
+    color: white;
+    font-size: 72px;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7%;
+    
+}
+
+.firstSpeech{
+    margin: 0 auto;
+    margin-top: 7%;
+    font-family: izhitsa;
+    color: whitesmoke;
+    max-width: 1000px;
+    background: orange;
+    border-radius: 30px;
+    font-size: 30px;
+    padding: 50px;
+}
+
+.firstSpeech_header{
+    text-align: center;
+    font-size: 40px;
+}
+
+.firstSpeech_section{
+    margin-top: 25px;
+}
+
+.navigationProgramms{
+    margin: 0 auto;
+    margin-top: 7%;
+    font-family: izhitsa;
+    color: whitesmoke;
+    font-size: 40px;
+    max-width: 1000px;
+    padding: 50px;
+}
+
+.navigationProgramms_programm{
+    cursor: pointer;
+    background: orange;
+    margin: 0 auto;
+    margin-top: 25px;
+    max-width: 700px;
+    padding: 25px;
+}
+
+.navigationProgramms_programm_one{
+    border-radius: 35% 5%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.navigationProgramms_programm_one > img{
+    margin-right: 40px;
+}
+
+.navigationProgramms_programm_two{
+    border-radius: 5% 35%;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.navigationProgramms_programm_two > img{
+    margin-left: 40px;
+}
+
+.navigationProgramms_programm:hover{
+    animation: changeBackgroundLink 0.5s forwards ease-in-out;
+}
+
+.navigationProgramms_programm:hover > img{
+    animation: changeColorBorder 0.5s forwards ease-in;
+}
+
+.programm_image{
+    border-radius: 50%;
+    border: 7px solid #fff;
+}
+
+.news{
+    font-family: izhitsa;
+    font-size: 30px;
+    color: whitesmoke;
+    max-width: 1000px;
+    padding: 50px;
+    background-color: orange;
+    border-radius: 30px;
+    margin: 0 auto;
+    margin-top: 7%;
+}
+
+.news_header{
+    font-size: 40px;
+    text-align: center;
+}
+
+.news_article{
+    max-width: 800px;
+    margin: 7% auto;
+    background-color: #ee5a23;
+    padding: 25px;
+    border-radius: 30px;
+}
+
+.news_article_header{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.news_article_images{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.news_article_image{
+    background-size: cover;
+    border: 5px solid white;
+    background-position: center;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.news_article_image:hover{
+    animation: changeColorBorder 0.3s forwards ease-in;
+}
+
+.news_article_content_link{
+    font-family: 'arial';
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.news_article_content_link:hover{
+    text-decoration: underline;
+}
+
+.news_article_videos{
+    max-width: 600px;
+    max-height: 600px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: 7px solid white;
+    padding: 20px;/*удалить, когда будет видео*/
+}
+
+.comments{
+    border: 5px solid orange;
+    margin: 10% auto;
+    max-width: 1000px;
+    padding: 50px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between
+}
+
+.changeComment{
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+}
+
+.changeComment:hover > svg{
+    animation: changeArrowComments 0.2s forwards ease-in;
+}
+
+.comments_arrow{
+    fill: orange;
+    width: 40px;
+}
+
+.comment{
+    font-family: izhitsa;
+    font-size: 30px;
+    color: whitesmoke;
+    min-height: 400px;
+}
+
+.comment_header{
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.changeComment{
+    width: 80px;
+    cursor: pointer;
+}
+
+.body_footer{
+    background-color: orange;
+    max-width: 900px;
+    padding: 25px 50px;
+    border-radius: 30px 30px 0 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.communication{
+    font-family: arial;
+    color: whitesmoke;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.communication_icon{
+    padding: 10px;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+}
+
+.communication_svg{
+    fill: orange;
+}
+
+.vk{
+    margin-top: 2%;
+    font-family: arial;
+    color: whitesmoke;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+    width: 200px;
+}
+
+.iconSocNet{
+    padding: 10px;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+}
+
+.iconSocNet_svg{
+    fill: orange;
+}
+
+.vk:hover > .iconSocNet{
+    animation: changeBackgroundLinkVk 0.2s forwards ease-in;
+}
+
+.vk:hover > h2{
+    animation: changeColorLinkVk 0.2s forwards ease-in;
+}
+
+.vk:hover .iconSocNet_svg{
+    animation: changeArrowComments 0.2s forwards ease-in;
+}
+
+.footer_logo{
+    text-align: center;
+    font-family: izhitsa;
+    color: whitesmoke;
+}
+
+@keyframes changeBackgroundLink{
+    from{
+        background-color: orange;
+        color: whitesmoke;
+    }
+    to{
+        background-color: whitesmoke;
+        color: orange;
+    }
+}
+
+@keyframes changeColorBorder{
+    from{
+        border-color: whitesmoke;
+    }
+    to{
+        border-color: orange;
+    }
+}
+
+@keyframes changeBackgroundNavImg{
+    from{
+        background-color: transparent;
+    }
+    to{
+        background-color: #80808078;
+    }
+}
+
+@keyframes changeArrowComments{
+    from{
+        fill: orange;
+    }
+    to{
+        fill: whitesmoke;
+    }
+}
+
+@keyframes changeColorLinkVk{
+    from{
+        color: whitesmoke;
+    }
+    to{
+        color: #ee5a23;
+    }
+}
+
+@keyframes changeBackgroundLinkVk{
+    from{
+        background-color: whitesmoke;
+    }
+    to{
+        background-color: #ee5a23;
+    }
+}
