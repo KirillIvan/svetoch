@@ -247,7 +247,8 @@ body{
     padding: 50px;
     border-radius: 30px;
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    min-height: 400px;
 }
 
 .changeComment{
@@ -269,7 +270,6 @@ body{
     font-family: izhitsa;
     font-size: 30px;
     color: whitesmoke;
-    min-height: 400px;
 }
 
 .comment_header{
@@ -358,7 +358,7 @@ body{
 
 
 @media screen and (max-width:1050px) {
-    .comment{
+    .comments{
         min-height: 600px;
     }
 }
