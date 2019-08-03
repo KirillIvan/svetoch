@@ -1,9 +1,11 @@
 var openBigImage, image, back, next, parentImages, imgs = [], index , comments = [], indexComment = 0;
+let intervalCommentChange;
 function loadDocument(){
     openBigImage = document.getElementById('openImage');
     image = document.getElementById("openImage_img");
     comments = document.getElementsByClassName("comment");
     console.log(comments);
+    intervalCommentChange = setInterval(nextComment, 70);
 }
 
 function selectImage(event){
@@ -77,6 +79,10 @@ function backImage(){
     }
     imageBigOpen();
 }
+function nextCommentClick(){
+    nextComment();
+    clearInterval(intervalCommentChange);
+}
 
 function nextComment(){
     comments[indexComment].style.display = 'none';
@@ -87,6 +93,7 @@ function nextComment(){
         indexComment = 0;
     }
     comments[indexComment].style.display = "block";
+    
 }
 
 function backComment(){
