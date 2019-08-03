@@ -60,10 +60,6 @@ body{
     animation: changeBackgroundNavImg 0.5s forwards ease-in;
 }
 
-.openImage_nextImage:hover{
-    animation: changeBackgroundNavImg 0.5s forwards ease-in;
-}
-
 .menu_element_text{
     font-family: izhitsa;
     color: #fff;
@@ -275,6 +271,12 @@ body{
     color: whitesmoke;
     min-height: 400px;
 }
+
+@media screen and (max-width:1050px) {
+    .comment{
+        min-height: 600px;
+    }
+  }
 
 .comment_header{
     font-size: 40px;

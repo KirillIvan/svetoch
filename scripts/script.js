@@ -1,11 +1,19 @@
-var openBigImage, image, back, next, parentImages, imgs = [], index , comments = [], indexComment = 0;
+var openBigImage, image, back, next, parentImages, imgs = [], index , comments = [], indexComment = 0, commentsParent;
 let intervalCommentChange;
 function loadDocument(){
     openBigImage = document.getElementById('openImage');
     image = document.getElementById("openImage_img");
     comments = document.getElementsByClassName("comment");
-    console.log(comments);
+    commentsParent = document.getElementById("comments_article");
     intervalCommentChange = setInterval(nextComment, 7000);
+    var maxHeightComments = 400;
+    console.log(commentsParent.childNodes[3].height);
+    for(let i = 0; i <= comments.length; i++){
+        if(maxHeightComments < comments[i].style.height.substring(0, comments[i].style.height.indexOf("px") - 1)){
+            console.log("фурычит");
+            maxHeightComments = comments[i].innerHeight;
+        }
+    }
 }
 
 function selectImage(event){
@@ -46,7 +54,6 @@ function imageBigOpen(){
     back.style.marginTop = marginTopBack;
     next.style.marginTop = marginTopNext;
     var img = new Image();
-    console.log(img);
     img.src = imgs[index];
     image.src = imgs[index];
     if(window.innerHeight < window.innerWidth){
@@ -56,15 +63,9 @@ function imageBigOpen(){
         image.style.width = (window.innerHeight / 1.25) * heightImage + "px";
     }
     else{
-        console.log("else");
         var heightImage = img.height / img.width;
         image.style.width = (window.innerWidth / 2) + "px";
         image.style.height = ((window.innerWidth / 2) * heightImage) + "px";
-        console.log("img-height: " + img.height + "/nimg-width: " + img.width)
-        console.log("w-w: " + window.innerWidth)
-        console.log("h: " + image.style.height);
-        console.log("w: " + image.style.width);
-        console.log("r: " + heightImage)
     }
     image.style.marginTop = (document.documentElement.clientHeight - image.clientHeight)/2 + "px";
     openBigImage.style.visibility = "visible";
@@ -114,6 +115,10 @@ function resizeModeWindow(){
     if(openBigImage.style.visibility == "visible"){
         imageBigOpen();
     }
+}
+
+function animationMargin(objPrev, objNext){
+
 }
 
 window.onload = loadDocument;
