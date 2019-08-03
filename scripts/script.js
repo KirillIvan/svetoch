@@ -5,7 +5,7 @@ function loadDocument(){
     image = document.getElementById("openImage_img");
     comments = document.getElementsByClassName("comment");
     console.log(comments);
-    intervalCommentChange = setInterval(nextComment, 70);
+    intervalCommentChange = setInterval(nextComment, 7000);
 }
 
 function selectImage(event){
@@ -82,6 +82,7 @@ function backImage(){
 function nextCommentClick(){
     nextComment();
     clearInterval(intervalCommentChange);
+    setTimeout(intervalCommentChange = setInterval(nextComment, 7000), 10000);
 }
 
 function nextComment(){
@@ -105,6 +106,8 @@ function backComment(){
         indexComment = comments.length - 1;
     }
     comments[indexComment].style.display = "block";
+    clearInterval(intervalCommentChange);
+    setTimeout(intervalCommentChange = setInterval(nextComment, 7000), 10000);
 }
 
 function resizeModeWindow(){
