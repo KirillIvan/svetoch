@@ -4,16 +4,7 @@ function loadDocument(){
     openBigImage = document.getElementById('openImage');
     image = document.getElementById("openImage_img");
     comments = document.getElementsByClassName("comment");
-    commentsParent = document.getElementById("comments_article");
     intervalCommentChange = setInterval(nextComment, 7000);
-    var maxHeightComments = 400;
-    console.log(commentsParent.childNodes[3].height);
-    for(let i = 0; i <= comments.length; i++){
-        if(maxHeightComments < comments[i].style.height.substring(0, comments[i].style.height.indexOf("px") - 1)){
-            console.log("фурычит");
-            maxHeightComments = comments[i].innerHeight;
-        }
-    }
 }
 
 function selectImage(event){
@@ -115,10 +106,6 @@ function resizeModeWindow(){
     if(openBigImage.style.visibility == "visible"){
         imageBigOpen();
     }
-}
-
-function animationMargin(objPrev, objNext){
-
 }
 
 window.onload = loadDocument;
