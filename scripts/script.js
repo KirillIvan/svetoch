@@ -1,10 +1,15 @@
 var openBigImage, image, back, next, parentImages, imgs = [], index , comments = [], indexComment = 0, commentsParent;
 let intervalCommentChange;
 function loadDocument(){
-    openBigImage = document.getElementById('openImage');
-    image = document.getElementById("openImage_img");
     comments = document.getElementsByClassName("comment");
-    intervalCommentChange = setInterval(nextComment, 7000);
+    if(document.documentURI.substring(document.documentURI.lastIndexOf("/") + 1) == "index.html"){
+        openBigImage = document.getElementById('openImage');
+        image = document.getElementById("openImage_img");
+        intervalCommentChange = setInterval(nextComment, 7000);
+    }
+    else{
+        intervalCommentChange = setInterval(nextComment, 18000);
+    }
 }
 
 function selectImage(event){
@@ -74,7 +79,12 @@ function backImage(){
 function nextCommentClick(){
     nextComment();
     clearInterval(intervalCommentChange);
-    setTimeout(intervalCommentChange = setInterval(nextComment, 7000), 10000);
+    if(document.documentURI.substring(document.documentURI.lastIndexOf("/") + 1) == "index.html"){
+        setTimeout(intervalCommentChange = setInterval(nextComment, 7000), 10000);
+    }
+    else{
+        setTimeout(intervalCommentChange = setInterval(nextComment, 18000), 28000);
+    }
 }
 
 function nextComment(){
