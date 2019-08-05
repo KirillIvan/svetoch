@@ -2,7 +2,7 @@ var openBigImage, image, back, next, parentImages, imgs = [], index , comments =
 let intervalCommentChange;
 function loadDocument(){
     comments = document.getElementsByClassName("comment");
-    if(document.documentURI.substring(document.documentURI.lastIndexOf("/") + 1) == "index.html"){
+    if(document.documentURI.substring(document.documentURI.lastIndexOf("/") + 1) == "index.html" || document.documentURI.substring(document.documentURI.lastIndexOf("/") + 1) == "portfolio.html"){
         openBigImage = document.getElementById('openImage');
         image = document.getElementById("openImage_img");
         intervalCommentChange = setInterval(nextComment, 7000);
