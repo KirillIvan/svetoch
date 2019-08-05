@@ -5,7 +5,9 @@ function loadDocument(){
     if(document.documentURI.substring(document.documentURI.lastIndexOf("/") + 1) == "index.html" || document.documentURI.substring(document.documentURI.lastIndexOf("/") + 1) == "portfolio.html"){
         openBigImage = document.getElementById('openImage');
         image = document.getElementById("openImage_img");
-        intervalCommentChange = setInterval(nextComment, 7000);
+        if(document.documentURI.substring(document.documentURI.lastIndexOf("/") + 1) == "index.html"){
+            intervalCommentChange = setInterval(nextComment, 7000);
+        }
     }
     else{
         intervalCommentChange = setInterval(nextComment, 18000);
